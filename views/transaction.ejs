@@ -1,0 +1,49 @@
+<!DOCTYPE   html>
+<html>
+    <head>
+        <title>ABC BANK</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/navbar.css">
+        <link rel="stylesheet" href="css/transaction.css">
+        <link rel="stylesheet" href="css/footer.css">
+    </head>
+    <body>
+    <nav class="navbar">
+      <div class="banklogo">
+        <h1 class="bname">ABC BANK</h1>
+        <img style="border-radius: 12px;" src="images/bank logo.jpg" alt="bank logo">
+      </div>
+    <div class="navlinks">
+        <a href="/" class="navlink">Home</a>
+        <a href="/customers" class="navlink">View Customers</a>
+    </div>
+</nav>
+
+      <h1 class="transaction_h1">Transaction Details</h1>
+    <div class="customers_details">
+        <table border="1" class="customers_table">
+          <thead class="customers_table_head">
+            <th>ID</th>
+            <th>Sender</th>
+            <th>Reciever</th>
+            <th>Amount</th>
+            <th>Date and Time</th>
+          <thead>
+            <tbody>
+            <% for(let i=0;i<transactions.length;i++){%>
+              <tr>
+                  <td><%=transactions[i].transaction_id%></td>
+                  <td><%=transactions[i].sender%></td>
+                  <td><%=transactions[i].reciever%></td>
+                  <td><%=transactions[i].amount%></td>
+                  <td><%=transactions[i].date%></td>
+                </tr>
+            <%}%>
+          </tbody>
+        </table> 
+    </div>
+    <footer class="footer">
+          @Copyright 2024 Creator: Kishan 
+</footer>
+    </body>
+</html>

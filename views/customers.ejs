@@ -1,0 +1,57 @@
+<!DOCTYPE   html>
+<html>
+    <head>
+        <title>ABC BANK</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/navbar.css">
+        <link rel="stylesheet" href="css/customers.css">
+        <link rel="stylesheet" href="css/footer.css">
+    </head>
+    <body>
+    <nav class="navbar">
+      <div class="banklogo">
+        <h1 class="bname">ABC BANK</h1>
+        <img style="border-radius: 12px;" src="images/bank logo.jpg" alt="bank logo">
+      </div>
+    
+    <div class="navlinks">
+        <a href="/" class="navlink">Home</a>
+        <a href="/transaction" class="navlink">View Transaction</a>
+    </div>
+</nav>
+
+    <div class="customers_details">
+        <table border="1" class="customers_table">
+          <thead class="customers_table_head">
+            <th>id</th>
+            <th>Name</th>
+            <th>Operation</th>
+            <th>Email</th>
+            <th>Account Number</th>
+          <thead>
+            <tbody>
+            <% for(let i=0;i<customers.length;i++){%>
+              <tr>
+                  <td><%=i+1%></td>
+                  <td><%=customers[i].name%></td>
+                  <td><%=customers[i].email%></td>
+                  <td><%=customers[i].account_number%></td>
+                  <td style="text-align: center;">
+                    <button style="background: linear-gradient(#777, #444);color:white;padding:5px 10px;border-radius: 5px;cursor: pointer;" onclick="view('<%=customers[i].user_id%>')">View</button>
+                </td>
+              </tr>
+              <%}%>
+            </tbody>
+        </table> 
+    </div>
+    <footer class="footer" style="margin-top:10.8%;">
+          @Copyright 2024 Creator: Kishan
+</footer>
+<script>
+  function view(id){
+    const url = `/customer_details?user_id=${id}`;
+    window.location.href = url;
+  }
+</script>
+    </body>
+</html>

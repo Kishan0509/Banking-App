@@ -1,0 +1,55 @@
+<!DOCTYPE   html>
+<html>
+    <head>
+        <title>ABC BANK</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/navbar.css">
+        <link rel="stylesheet" href="css/customer.css">
+        <link rel="stylesheet" href="css/footer.css">
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="banklogo">
+                <h1 class="bname">ABC BANK</h1>
+                <img style="border-radius: 12px;" src="images/bank logo.jpg" alt="bank logo">
+              </div>
+           
+            <!-- <div class="navlinks">
+                <a href="/" class="navlink">Home</a>
+                <a href="/customers" class="navlink">View Customers</a>
+            </div> -->
+
+            <div class="navlinks">
+                <a href="/" class="navlink">Home</a>
+                <a href="/transaction" class="navlink">View Transaction</a>
+            </div>
+
+        </nav>
+        
+        <div class="main_div">
+            <div class="sub_div">
+                <img src="images/user.jpg" class="customer_image">
+                <div>
+                    <% for(let i=0;i<user.length;i++){ %>
+                        <h3>Id: <%=user[i].user_id%></h3>
+                        <h3>Name: <%=user[i].name%></h3>
+                        <h3>Email: <%=user[i].email%></h3>
+                        <h3>Balance: <%=user[i].balance%></h3>
+                        <button class="view_button" style="background: linear-gradient(#777, #444);color:white;padding:5px 10px;border-radius: 5px;cursor: pointer;" onclick="transact('<%=user[i].user_id%>')">Transact</button>
+                    <% } %>
+                </div>
+
+            </div>
+        </div>
+        <footer class="footer">
+            @Copyright 2024 Creator: Kishan
+  </footer>
+    </body>
+    
+  <script>
+    function transact(id){
+        const url = `transfer?user_id=${id}`;
+        window.location.href = url;
+    }
+  </script>
+</html>

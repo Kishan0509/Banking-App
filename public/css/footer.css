@@ -1,0 +1,14 @@
+body {
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 100vh; /* Use min-height to ensure body expands with content */
+}
+
+.footer {
+    padding: 1%;
+    text-align: center;
+    margin-top: auto; /* Pushes the footer to the bottom */
+    background: linear-gradient(180.3deg, rgb(221, 221, 221) 5.5%, rgb(110, 136, 161) 90.2%);
+}

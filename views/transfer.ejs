@@ -1,0 +1,52 @@
+<!DOCTYPE   html>
+<html>
+    <head>
+        <title>ABC BANK</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/navbar.css">
+        <link rel="stylesheet" href="css/transfer.css">
+        <link rel="stylesheet" href="css/footer.css">
+    </head>
+    <body>
+        <nav class="navbar">
+            <h1>ABC BANK</h1>
+            <div class="navlinks">
+                <a href="/" class="navlink">Home</a>
+                <a href="/customers" class="navlink">View Customers</a>
+            </div>
+        </nav>
+        
+        <div class="main_div">
+            <div class="sub_div">
+                <h1 class="transfer_h1">Transfer</h1>
+                <form method="post">
+                    <label class="transfer_label">From:</label><br>
+                    <input name="from" type="text" class="transfer_input" value="<%=username.name%>"><br>
+                    <input name="userid" type="hidden" value="<%=username.user_id%>">
+                    <label class="transfer_label">To:</label><br>
+                    <select name="to" required class="transfer_input_to">
+                        <option value="" disabled selected>Choose</option>
+                        <% for(let i=0;i<customers.length;i++){%>
+                <option value="<%=customers[i].user_id%>"><%=i+1%> <%=customers[i].name%></option>
+                <br>
+                <%}%>
+                    </select><br>
+                    <label class="transfer_label">Amount:</label><br>
+                    <input name="amount" type="number" class="transfer_input" onkeyup="check(event,'<%=username.balance%>')"><br>
+                <button class="view_button" style="background: linear-gradient(#777, #444);color:white;padding:5px 10px;border-radius: 5px;cursor: pointer;" type="submit">Transfer</button>
+                </div>
+
+            </div>
+        </div>
+        <footer class="footer">
+            @Copyright 2024 Creator: Kishan
+  </footer>
+    </body>
+    <script>
+        function check(event,balance){
+            if( balance < Number(event.target.value)){                
+                alert("Insufficient balance");
+            }
+        }
+    </script>
+</html>
